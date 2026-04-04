@@ -24,7 +24,7 @@ FetchContent_MakeAvailable(asio)
 find_package(Threads REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-add_executable (Client "Client.cpp" )
+add_executable (Client "main.cpp"  "Client.h" "Client.cpp")
 
 target_compile_definitions(Client PRIVATE ASIO_STANDALONE)
 target_link_libraries(Client PRIVATE Threads::Threads OpenSSL::SSL OpenSSL::Crypto)
