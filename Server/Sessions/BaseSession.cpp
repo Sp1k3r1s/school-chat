@@ -6,6 +6,11 @@
 
 #include "../Server.h"
 
+session::session(asio::ssl::stream<asio::ip::tcp::socket> socket, std::shared_ptr<server> server)
+    : _socket(std::move(socket)), _server(std::move(server)) {
+    std::memset(_data, 0x0, 1024);
+}
+
 void session::do_write() {
     auto self(shared_from_this());
     _socket.async_write_some(asio::buffer(_data, 1024),
@@ -56,11 +61,6 @@ void session::stop() {
     if (server) {
         server->remove_session(shared_from_this());
     }
-}
-
-session::session(asio::ssl::stream<asio::ip::tcp::socket> socket, std::shared_ptr<server> server)
-    : _socket(std::move(socket)), _server(std::move(server)) {
-    std::memset(_data, 0x0, 1024);
 }
 
 void session::tell_client(const std::string& message) {
