@@ -23,7 +23,7 @@ FetchContent_MakeAvailable(asio)
 find_package(Threads REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-add_executable (Server "main.cpp" "Sessions/BaseSession.cpp" "Server.cpp" "Sessions/AdminSession.h")
+add_executable (Server "main.cpp" "Sessions/BaseSession.cpp" "Server.cpp" )
 
 target_compile_definitions(Server PRIVATE ASIO_STANDALONE)
 target_link_libraries(Server PRIVATE Threads::Threads OpenSSL::SSL OpenSSL::Crypto)

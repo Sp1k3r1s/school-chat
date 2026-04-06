@@ -11,7 +11,7 @@ endif()
 
 project ("NetworkCommon")
 
-add_library (NetworkCommon "src/Reader.cpp" "src/Serializer.cpp" "src/Writer.cpp")
+add_library (NetworkCommon "src/Reader.cpp" "src/Serializer.cpp" "src/Writer.cpp" "include/NetworkCommon/Deserializer.h")
 
 target_include_directories(NetworkCommon
     PUBLIC

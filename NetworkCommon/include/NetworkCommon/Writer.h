@@ -10,7 +10,12 @@ namespace NC {
 		template<typename T>
 		void write_integer(T value);
 
-		void write_data(void* data, size_t lenght);
+		void write_data(void* data, int lenght);
+
+		template<typename T>
+		void write_data(T data, int lenght) {
+			write_data(data, sizeof(T) * lenght);
+		}
 
 		const std::vector<uint8_t>& get_buffer() { return this->_buffer; }
 	};

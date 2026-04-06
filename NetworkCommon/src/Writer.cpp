@@ -10,7 +10,7 @@ namespace NC {
         }
     }
 
-    void Writer::write_data(void* data, size_t lenght) {
+    void Writer::write_data(void* data, int lenght) {
         const uint8_t* ptr = (const uint8_t*)(data);
         this->_buffer.insert(this->_buffer.end(), ptr, ptr + lenght);
     }
