@@ -4,5 +4,6 @@
 #include <NetworkCommon/Packets.h>
 
 namespace NC {
-	// todo
+	AuthPacket read_auth_packet(const Reader& reader);
+	MessagePacket read_message_packet(const Reader& reader);
 }
